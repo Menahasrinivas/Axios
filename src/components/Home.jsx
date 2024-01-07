@@ -1,6 +1,6 @@
 import React,{ useEffect,useState } from 'react'
 import Topbar from '../Topbar';
-import AxiosCard from '../Common/AxiosCards';
+import AxiosCards from '../Common/AxiosCards';
 import { toast } from 'react-toastify';
 import { API_URL } from '../App';
 import axios from 'axios';

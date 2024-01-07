@@ -41,10 +41,10 @@ const getBlogById = async()=>{
                 {
                   setTitle(res.data.name)
                   setImage(res.data.address)
-                  setDesc(res.data.phonenumber)
-                  setDesc(res.data.email)
-                  setDesc(res.data.companyname)
-                  setDesc(res.data.image)
+                  setPhn(res.data.phonenumber)
+                  seteMail(res.data.email)
+                  setCompany(res.data.companyname)
+                  setImage(res.data.image)
 
 
                 }
@@ -70,6 +70,7 @@ const getBlogById = async()=>{
                             <Form.Lable>Address</Form.Lable>
                             <Form.Control type="text" placeholder="Address" onChange={(e)=>{setAdrs(e.target.value)}}/>
                             </Form.Group>
+
                             <Form.Group className="mb-3">
                             <Form.Lable>Phonenumber</Form.Lable>
                             <Form.Control type="text" placeholder="Phonenumber" onChange={(e)=>{setPhn(e.target.value)}}/>
@@ -79,6 +80,7 @@ const getBlogById = async()=>{
                             <Form.Lable>e-mail</Form.Lable>
                             <Form.Control type="text" placeholder="email" onChange={(e)=>{seteMail(e.target.value)}}/>
                             </Form.Group>
+
                             <Form.Group className="mb-3">
                             <Form.Lable>CompanyName</Form.Lable>
                             <Form.Control type="text" placeholder="companyname" onChange={(e)=>{setCompany(e.target.value)}}/>
