@@ -63,7 +63,7 @@ const getBlogById = async()=>{
                 <Form>
                             <Form.Group className="mb-3">
                             <Form.Lable>Name</Form.Lable>
-                            <Form.Control type="text" placeholder="Title" onChange={(e)=>{setName(e.target.value)}}/>
+                            <Form.Control type="text" placeholder="Name" onChange={(e)=>{setName(e.target.value)}}/>
                             </Form.Group>
 
                             <Form.Group className="mb-3">

@@ -46,14 +46,14 @@ function Dashboard(){
                             if(res.status===200)
                             {
                                           toast.success('Axios Status Changed!')
-                                          getBlogs()          
+                                          getAxios()          
                             }
                         }    catch (error) {
                       }      
                             }
 
                             useEffect(()=>{
-                                          getBlogs()
+                                          getAxios()
                                         },[])
                                         return <div className='container-fluid'>
                                           <Topbar/>
@@ -86,7 +86,7 @@ function Dashboard(){
                                                     </td>
                                                     <td>
                                                       <label className="switch">
-                                                        <input type="checkbox" defaultChecked={e.status} onChange={()=>toggleBlog(e)}/>
+                                                        <input type="checkbox" defaultChecked={e.status} onChange={()=>toggleAxios(e)}/>
                                                         <span className="slider round"></span>
                                                       </label>
                                                     </td>

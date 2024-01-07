@@ -1,8 +1,8 @@
 import React,{ useState } from 'react';
-import button from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Topbar from './Topbar';
-import AxiosCard from '../Common/AxiosCards';
+import AxiosCard from './Common/AxiosCards';
 import axios from 'axios';
 import{ API_URL } from '../App';
 import { useNavigate } from 'react-router-dom';
@@ -17,8 +17,8 @@ function Create() {
               let navigate = useNavigate()
           const handleCreate = async()=>{
           try {
-              let data ={name,address,phonenumber,email,companyname,image,status:false}
-         let res = await axios.post(API_URL,data)
+              let data ={name,address,phonenumber,email,companyname,image,status:false};
+         let res = await axios.post(API_URL, data)
           if(res.status===201)
 {
               toast.success("Data Created Successfully!")
@@ -29,17 +29,19 @@ function Create() {
 
 }
 
-}    
+};    
   
   
- return <div className='container-fluid'>
+ return (
+ <>
+ <div className='container-fluid'>
 <Topbar/>
 <div className='home'>
  <div className='form'>
               <Form>
                             <Form.Group className="mb-3">
                             <Form.Lable>Name</Form.Lable>
-                            <Form.Control type="text" placeholder="Title" onChange={(e)=>{setName(e.target.value)}}/>
+                            <Form.Control type="text" placeholder="Name" onChange={(e)=>{setName(e.target.value)}}/>
                             </Form.Group>
 
                             <Form.Group className="mb-3">
@@ -66,7 +68,7 @@ function Create() {
           <Form.Control type="text" placeholder="Image Url" onChange={(e)=>{setImage(e.target.value)}}/>
         </Form.Group>
  
-          <Button variant="primary" onclick={()=>handleCreate()}>
+          <Button variant="primary" onClick={()=>handleCreate()}>
               Submit
           </Button>
 </Form>
@@ -84,7 +86,8 @@ function Create() {
               </div>             
                </div>
               </div>   
-
+</>
+ );
 
 }
 
