@@ -1,14 +1,10 @@
-td .img:hover{
-  cursor: pointer !important;
+body {
+  background-color: aquamarine;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
-.img-home{
-  border-radius: 30em !important;
-  width: 100%;
-}
-.img-home:hover{
-  cursor: pointer;
-  transition: 1s ease-in;
-}
+
 .switch {
     position: relative;
     display: inline-block;
@@ -22,9 +18,7 @@ td .img:hover{
     width: 0;
     height: 0;
   }
-  
-  /* The slider */
-  .slider {
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -70,3 +64,27 @@ td .img:hover{
   .slider.round:before {
     border-radius: 50%;
   }
+  .Titlehead{
+    background-image: linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%);
+  box-shadow: 10px 10px 50px rgb(185, 4, 94),
+                inset 10px 5px 30px rgb(242, 238, 240);
+  }
+  .custom{
+    background-image: linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%);
+  color: black;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.custom .nav-link:hover {
+  background-color: rgb(242, 238, 240);
+  color: rgb(247, 7, 111);
+  border-radius:40px;
+}
+.custom .nav-link{
+  font-family:cursive;
+}
+.custom .navbar-brand{
+  font-size: 28px;
+  cursor: pointer;
+}

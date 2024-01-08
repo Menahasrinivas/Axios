@@ -9,49 +9,51 @@ import { useNavigate } from 'react-router-dom';
  
 function Dashboard(){
               let navigate = useNavigate()
-               let [data,setData] = useState([])
+               let [data1,setData1] = useState([]);
        
-              const getData=async()=>{
+              const getData1=async()=>{
                             try {
-              let res = await axios.get(API_URL)
+              let res = await axios.get(`${API_URL}`)
               if(res.status===200)
               {
-                            setData(res.data)
+                            setData1(res.data)
               }
               }catch (error){
-                            toast.error("Internal Server Error")
-                            console.log(error)
+                            // toast.error("Internal Server Error")
+                            // console.log(error)
               }
               };
               const handleDelete = async(id)=>{
                             try{
-                                          let res = await axios.delete(`${Api_URL}/${id}`)
-                                          if(res.status===200)
+                                          let res = await axios.delete(`${API_URL}/${id}`);
+                                          if(res.status === 200)
                             {
                                           toast.success(`Data Deleted Successfully!`)
-                                           getData()}
+                                           getData1();
+                                          }
                             } catch (error){
-                                          toast.error("Internal Server Error")
+                                          // toast.error("Internal Server Error")
                             }
-              }
-                      const toggleData = async(e)=>{
+                      };        
+                      const toggleBlog = async(e)=>{
                         try{
                             e.status = !e.status
-                            console.log(e)
+                            // console.log(e)
                             let res = await axios.put(`${API_URL}/${e.id}`,e)
                             if(res.status===200)
                             {
                                           toast.success('Axios Status Changed!')
-                                          getData()          
+                                          getData1()          
                             }
                         }    catch (error) {
+
                       }      
                             }
 
                             useEffect(()=>{
-                                          getData()
-                                        },[])
-                                        return <div className='container-fluid'>
+                                          getData1()
+                                        })
+                                        return ( <div className='container-fluid'>
                                           <Topbar/>
                                           <div>
                                           <Table striped bordered hover>
@@ -60,49 +62,54 @@ function Dashboard(){
                                                 <th>#</th>
                                                 <th>Name</th>
                                                 <th>Address</th>
-                                                <th>PhoneNumber</th>
-                                                <th>e-mail</th>
-                                                <th>CompanyName</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                                <th>Company</th>
                                                 <th>Image</th>
+                                                <th>Status</th>
+                                                
+                                                
                                               </tr>
                                             </thead>
                                             <tbody>
-                                              {
-                                                data.map((e,i)=>{
-                                                  return <tr key={i}>
+                                              
+                                                {data1.map((e, i)=>(
+                                                  <tr key={i}>
                                                     <td>{i+1}</td>
-                                                    <td>{e.title}</td>
+                                                    <td>{e.name}</td>
+                                                    <td>{e.address}</td>
+                                                    <td>{e.phone}</td>
+                                                    <td>{e.email}</td>
+                                                    <td>{e.company}</td>
                                                     <td>
-                                                      <img src={e.image} alt={e.title} style={{width:"50px"}}/>
+                                                      <img src={e.image} alt={`Image for ${data1.name}`} style={{width:"50px"}}/>
                                                     </td>
                                                     <td >
-                                                      <div style={{width:"300px", overflow:"hidden", whiteSpace:"nowrap",textOverflow:"ellipsis"}}>
-                                                        {e.description}
-                                                      </div>
-                                                    </td>
-                                                    <td>
-                                                      <label className="switch">
+                                                      
+                                                    
+                                                <label className="switch">
                                                         <input type="checkbox" defaultChecked={e.status} onChange={()=>toggleAxios(e)}/>
                                                         <span className="slider round"></span>
                                                       </label>
                                                     </td>
                                                     <td>
                                                       <Button variant="info" onClick={()=>navigate(`/edit/${e.id}`)}>Edit</Button>
-                                                      &nbsp;
+                                                      
                                                       <Button variant="danger" onClick={()=>handleDelete(e.id)}>Delete</Button>
                                                     </td>
                                                   </tr>
-                                                })
-                                              }
+                                                ))}
+                                              
                                             </tbody>
                                           </Table>
                                           </div>
                                         </div>
+                                       );
+                                       }
+
+
+             
 
 
 
-              }
-
-
-
-export default Dashboard
+export default Dashboard;
