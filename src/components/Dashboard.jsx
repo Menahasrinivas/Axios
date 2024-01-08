@@ -9,22 +9,18 @@ import { useNavigate } from 'react-router-dom';
  
 function Dashboard(){
               let navigate = useNavigate()
-              let [axios,setAxios] = useState([])
+               let [data,setData] = useState([])
        
-              useEffect(() => {
-                            getAxios();
-                        }, []);
-                    
-              
-              const getAxios=async()=>{
+              const getData=async()=>{
                             try {
               let res = await axios.get(API_URL)
               if(res.status===200)
               {
-                            setAxios(res.data)
+                            setData(res.data)
               }
               }catch (error){
                             toast.error("Internal Server Error")
+                            console.log(error)
               }
               };
               const handleDelete = async(id)=>{
@@ -33,12 +29,12 @@ function Dashboard(){
                                           if(res.status===200)
                             {
                                           toast.success(`Data Deleted Successfully!`)
-                                           getAxios()}
+                                           getData()}
                             } catch (error){
                                           toast.error("Internal Server Error")
                             }
               }
-                      const toggleAxios = async(e)=>{
+                      const toggleData = async(e)=>{
                         try{
                             e.status = !e.status
                             console.log(e)
@@ -46,14 +42,14 @@ function Dashboard(){
                             if(res.status===200)
                             {
                                           toast.success('Axios Status Changed!')
-                                          getAxios()          
+                                          getData()          
                             }
                         }    catch (error) {
                       }      
                             }
 
                             useEffect(()=>{
-                                          getAxios()
+                                          getData()
                                         },[])
                                         return <div className='container-fluid'>
                                           <Topbar/>
@@ -72,7 +68,7 @@ function Dashboard(){
                                             </thead>
                                             <tbody>
                                               {
-                                                axios.map((e,i)=>{
+                                                data.map((e,i)=>{
                                                   return <tr key={i}>
                                                     <td>{i+1}</td>
                                                     <td>{e.title}</td>

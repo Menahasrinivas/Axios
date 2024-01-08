@@ -2,11 +2,12 @@ import React,{ useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Topbar from './Topbar';
-import AxiosCard from './Common/AxiosCards';
+import AxiosCards from './Common/AxiosCards';
 import axios from 'axios';
 import{ API_URL } from '../App';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+
 function Create() {
               let [name,setName] = useState("")
               let[address,setAdrs] = useState("")
@@ -18,9 +19,9 @@ function Create() {
           const handleCreate = async()=>{
           try {
               let data ={name,address,phonenumber,email,companyname,image,status:false};
-         let res = await axios.post(API_URL, data)
-          if(res.status===201)
-{
+         let res = await axios.post(API_URL, data);
+          if(res.status === 201){
+
               toast.success("Data Created Successfully!")
               navigate('/dashboard')
 }
@@ -32,12 +33,12 @@ function Create() {
 };    
   
   
- return (
- <>
- <div className='container-fluid'>
+ return  <div className='container-fluid'>
+         
 <Topbar/>
 <div className='home'>
- <div className='form'>
+      <div className='formWrapper'>
+ 
               <Form>
                             <Form.Group className="mb-3">
                             <Form.Lable>Name</Form.Lable>
@@ -64,18 +65,17 @@ function Create() {
                             
 
                             <Form.Group className="mb-3">
-          <Form.Label>Image Url</Form.Label>
-          <Form.Control type="text" placeholder="Image Url" onChange={(e)=>{setImage(e.target.value)}}/>
-        </Form.Group>
+                             <Form.Label>Image Url</Form.Label>
+                             <Form.Control type="text" placeholder="Image Url" onChange={(e)=>{setImage(e.target.value)}}/>
+                             </Form.Group>
  
-          <Button variant="primary" onClick={()=>handleCreate()}>
-              Submit
-          </Button>
-</Form>
-</div>
-<div className='preview'>
+                       <Button variant="primary" onClick={()=>handleCreate()}>
+                            Submit
+                            </Button>
+                        </Form>
+         <div className='previewWrapper'>
               <h2 style={{textAlign:"center"}}>Preview</h2>
-              <AxiosCard
+              <AxiosCards
               name={name}
               address={address}
               phonenumber={phonenumber}
@@ -84,10 +84,13 @@ function Create() {
               image={image}
                />
               </div>             
-               </div>
-              </div>   
-</>
- );
+              </div>
+              </div>
+              </div>
+ 
+
+
+
 
 }
 

@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Topbar from '../components/Topbar';
-import AxiosCard from './Common/AxiosCards';
+import AxiosCards from './Common/AxiosCards';
 import axios from 'axios';
 import { API_URL } from '../App';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -22,7 +22,7 @@ let [name,setName] = useState("")
               const handleCreate = async()=>{
           try {
               let data ={name,address,phonenumber,email,companyname,image,status:false}
-         let res = await axios.post(API_URL,data)
+         let res = await data.post(API_URL,data)
           if(res.status===200)
 {
               toast.success("Data Edited Successfully!")
@@ -34,15 +34,15 @@ let [name,setName] = useState("")
 }
 
 }   
-const getBlogById = async()=>{
+const getAxiosIDById = async()=>{
               try {
                 let res = await axios.get(`${API_URL}/${id}`)
                 if(res.status===200)
                 {
-                  setTitle(res.data.name)
+                  setName(res.data.name)
                   setImage(res.data.address)
                   setPhn(res.data.phonenumber)
-                  seteMail(res.data.email)
+                  setEmail(res.data.email)
                   setCompany(res.data.companyname)
                   setImage(res.data.image)
 
@@ -53,7 +53,7 @@ const getBlogById = async()=>{
               }
             } 
             useEffect(()=>{
-              getBlogById()
+              getAxiosID()
             },[])
           
             return <div className='container-fluid'>
@@ -116,5 +116,5 @@ const getBlogById = async()=>{
 
           
           
-          export default Edit
+export default Edit
 
