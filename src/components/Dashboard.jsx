@@ -88,7 +88,7 @@ function Dashboard(){
                                                       
                                                     
                                                 <label className="switch">
-                                                        <input type="checkbox" defaultChecked={e.status} onChange={()=>toggleAxios(e)}/>
+                                                        <input type="checkbox" defaultChecked={e.status} onChange={()=>toggleBlog(e)}/>
                                                         <span className="slider round"></span>
                                                       </label>
                                                     </td>

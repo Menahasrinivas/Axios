@@ -68,12 +68,12 @@ const getBlogById = async()=>{
 
                             <Form.Group className="mb-3 w-50 mt-5">
                             <Form.Label style={{fontFamily:"cursive", fontSize:"20px"}}>Address</Form.Label>
-                            <Form.Control as="textarea" value={address} type="text" placeholder="Address" onChange={(e)=>{setAdrs(e.target.value)}}/>
+                            <Form.Control as="textarea" value={address} type="text" placeholder="Address" onChange={(e)=>{setAddress(e.target.value)}}/>
                             </Form.Group>
 
                             <Form.Group className="mb-3 w-50 mt-5">
                             <Form.Label style={{fontFamily:"cursive", fontSize:"20px"}}>phone</Form.Label>
-                            <Form.Control as="textarea" value={phone} type="text" placeholder="Phonenumber" onChange={(e)=>{setPhone(e.target.value)}}/>
+                            <Form.Control as="textarea" value={phone} type="text" placeholder="Phone" onChange={(e)=>{setPhone(e.target.value)}}/>
                             </Form.Group>
                             
                             <Form.Group className="mb-3 w-50 mt-5">

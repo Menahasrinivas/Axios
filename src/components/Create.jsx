@@ -29,8 +29,7 @@ function Create() {
      } catch (error) {
      };
     }
-  return 
-    <div className='container-fluid'>
+  return <div className='container-fluid'>
       <Topbar />
       <div className="home1">
         <div className="form1">
@@ -76,7 +75,7 @@ function Create() {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Emailail</Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Email"

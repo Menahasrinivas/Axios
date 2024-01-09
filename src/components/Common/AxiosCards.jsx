@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card';
 import { API_URL } from '../../App';
-function AxiosCards({ name,address, phonenumber, email, companyName, image}) {
+function AxiosCards({ name,address, phone, email, companyName, image}) {
               return (
                             <div className='mx-auto my-4 d-flex justify-content-center col-11 col-md-6 col-lg-4 mx-auto col-sm-10'>
                               {/* Bootstrap Card component */}
@@ -15,6 +15,11 @@ function AxiosCards({ name,address, phonenumber, email, companyName, image}) {
                             
                                   <Card.Text className='text-center fw-bold'>
                                     <i>{`Address: ${address}`}</i>
+                                  </Card.Text>
+                                  <hr />
+
+                                  <Card.Text className='text-center fw-bold'>
+                                    <i>{`Phone: ${phone}`}</i>
                                   </Card.Text>
                                   <hr />
                                   <Card.Text className='text-center fw-bold'>
