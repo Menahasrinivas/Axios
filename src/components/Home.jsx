@@ -51,11 +51,11 @@ try {
                   //   'city': 'Mumbai',
                   //   'zipcode': '92998-3874'
                   // };
-                  e.company = {
-                     'name': 'Rolex',
-                     'catchPhrase': 'Products of health care',
+                  // e.company = {
+                  //    'name': 'Rolex',
+                  //    'catchPhrase': 'Products of health care',
                     
-                   };
+                  //  };
         
 
          
