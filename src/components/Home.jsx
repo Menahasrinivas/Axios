@@ -4,7 +4,7 @@ import AxiosCards from './Common/AxiosCards';
 import { toast } from 'react-toastify';
 import { API_URL } from '../App';
 import axios from 'axios';
-import Col from 'react-bootstrap/Col';
+
 function Home() {
  let[data1,setData1] = useState([])
  
@@ -27,10 +27,14 @@ try {
                 toast.error('Error fetching data from the API');
             }
           };
+
+          useEffect(() => {
+            getData1();
+          }, []);
         
           return (
             <>
-              {/* TopBar component for navigation */}
+             
               <Topbar />
         
               <div className="container">
@@ -41,17 +45,17 @@ try {
                 {data1.map((e) => {
                   console.log(e);
                   // Adding mock address and company data for each blog
-                  e.address = {
-                    'street': 'Mark Street',
-                    'suite': 'first floor',
-                    'city': 'Mumbai',
-                    'zipcode': '92998-3874'
-                  };
+                  // e.address = {
+                  //   'street': 'Mark Street',
+                  //   'suite': 'first floor',
+                  //   'city': 'Mumbai',
+                  //   'zipcode': '92998-3874'
+                  // };
                   e.company = {
-                    'name': 'Rolex',
-                    'catchPhrase': 'Products of health care',
+                     'name': 'Rolex',
+                     'catchPhrase': 'Products of health care',
                     
-                  };
+                   };
         
 
          
