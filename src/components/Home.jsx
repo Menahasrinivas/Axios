@@ -65,7 +65,7 @@ try {
                 address={e.address} 
                 phone={e.phone} 
                 email={e.email} 
-                company={e.comapany} 
+                company={e.company} 
                 image={e.image} 
                 key={e.id}/>
                 );
